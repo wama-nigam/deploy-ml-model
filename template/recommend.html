@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Recommendations</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+    <h1 class="display-6">Movie Recommendations</h1>
+    <div class="container">
+        <div class="row">
+            {% for movie in recommendations %}
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div >
+                    <img src="{{ movie.Poster }}" class="card-img-top" alt="{{ movie.Title }} Poster">
+                    <div class="card text-bg-primary mb-3">
+                        <h5 class="card-header">{{ movie.Title }}</h5>
+                        <p class="card-body">{{ movie.Plot }}</p>
+                        <p class="card-text"><strong>Year:</strong> {{ movie.Year }}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <script>
+  // Check if the page was refreshed
+  if (performance.navigation.type === 1) {
+    // Clear localStorage
+    localStorage.clear();
+
+    // Redirect to the home page to start in a new state
+    window.location.href = '/';
+  }
+</script>
+</body>
+
+</html>
